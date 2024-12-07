@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de-CH" data-website-id="1" data-oe-company-name="KM GeTu BS 2019">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="google-site-verification" content="Z5GYIs7feK9ThN4DBXQ9PEze6C0VjJAu4mqwuYxfYwk" />
+  <title>Ranglisten | KM GeTu BS 2019</title>
+  <link type="image/x-icon" rel="shortcut icon" href="web/image/website/1/favicon/favicon.png" />
+
+  <script type="text/javascript">
+    const wettkampfid = '3328007b-0472-46a4-94ae-3093067bc251';
+    const gesamtranglisteid = '6b8bd140-2a73-41ca-8bce-829a09b6e59e';
+
+    function loadJSON(url, callback) {
+      const xobj = new XMLHttpRequest();
+      //xobj.overrideMimeType('application/json');
+      xobj.withCredentials = false;
+      xobj.open('GET', url, true);
+      xobj.onreadystatechange = function () {
+        if ((xobj.readyState + '/' + xobj.status) === '4/200') {
+          callback(url, xobj.responseText);
+        }
+      };
+      xobj.send();
+    };
+    function refreshTable(url, data) {
+      const stylesStart = data.indexOf('<style type="text/css">') + 23;
+      const stylesEnd = data.indexOf('</style>');
+      const ahead = data.substring(0, stylesStart);
+      const styles = data.substring(stylesStart, stylesEnd - stylesStart);
+      const after = data.substring(stylesEnd);
+      const epilog = ''; //'<div><em>Dieser Report wurde am ' + new Date().toUTCString() + ' generiert von der <a href="/'&#32;+&#32;url&#32;+&#32;'" target="_blank">Mobile-App</a></em></div>';
+      let myStyles = styles.replace(new RegExp(' li ', 'g'), ' #my_list li ')
+        .replace(new RegExp(' body ', 'g'), ' #my_list body ')
+        .replace(new RegExp(' .logo ', 'g'), ' #my_list .logo ')
+        .replace(new RegExp(' ul ', 'g'), ' #my_list ul ')
+        .replace(new RegExp(' table ', 'g'), ' #my_list table ');
+
+      document.getElementById('my_list').innerHTML = ahead + myStyles + after + epilog;
+    };
+    //loadJSON(refreshTable);
+    function refreshList(url) {
+      document.getElementById('my_list').innerHTML = '<image src="/web/image/1161/spinner.gif"></image>'
+      loadJSON(url, refreshTable);
+    };
+    function loadListByVerein(url) {
+      document.getElementById('my_buttons').innerHTML =
+        '<div class="btn btn-lg" onclick="loadListByKategorie(\'https://kutuapp.sharevic.net/api/report/\' + wettkampfid + \'/startlist?html\');"><span class="fa fa-th-list fa-1x" style=""></span> Gruppiert nach Kategorien</div><div class="btn btn-success btn-lg" onclick="loadListByVerein(\'https://kutuapp.sharevic.net/api/report/\' + wettkampfid + \'/startlist?html&amp;gr=verein\');"><span class="fa fa-th-list fa-1x" style=""></span> Gruppiert nach Vereinen</div>';
+
+      refreshList(url);
+    };
+
+    function loadListByKategorie(url) {
+      document.getElementById('my_buttons').innerHTML =
+        '<div class="btn btn-success btn-lg" onclick="loadListByKategorie(\'https://kutuapp.sharevic.net/api/report/\' + wettkampfid + \'/startlist?html\');"><span class="fa fa-th-list fa-1x" style=""></span> Gruppiert nach Kategorien</div><div class="btn btn-lg" onclick="loadListByVerein(\'https://kutuapp.sharevic.net/api/report/\' + wettkampfid + \'/startlist?html&amp;gr=verein\');"><span class="fa fa-th-list fa-1x" style=""></span> Gruppiert nach Vereinen</div>';
+
+      refreshList(url);
+    };
+
+  </script>
+
+  <meta name="generator" content="Odoo" />
+  <meta property="og:title" content="Ranglisten" />
+  <meta property="og:site_name" content="KM GeTu BS 2019" />
+  <link rel="alternate" hreflang="de" href="ranglisten.html" />
+  <link type="text/css" rel="stylesheet" href="web/content/1228-95d8e82/web.assets_common.0.css" />
+  <link type="text/css" rel="stylesheet" href="web/content/1232-db3c814/web.assets_frontend.0.css" />
+  <link type="text/css" rel="stylesheet" href="web/content/1233-db3c814/web.assets_frontend.1.css" />
+  <script type="text/javascript" src="web/content/1234-95d8e82/web.assets_common.js"></script>
+  <script type="text/javascript" src="web/content/1235-db3c814/web.assets_frontend.js"></script>
+</head>
+
+<body>
+  <div id="wrapwrap" class="">
+    <header>
+      <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
+              <span class="sr-only">Navigationsmenü umschalten</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand logo">
+              <span alt="Logo of KM GeTu BS 2019" title="KM GeTu BS 2019"><img
+                  src="web/image/res.company/1/btv-logo.png" class="img img-responsive" /></span>
+            </a>
+          </div>
+          <div class="collapse navbar-collapse navbar-top-collapse">
+            <ul class="nav navbar-nav navbar-right" id="top_menu">
+              <li>
+                <a href="index.html">
+                  <span>Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="programm.html">
+                  <span>Programm</span>
+                </a>
+              </li>
+              <li>
+                <a href="anfahrt.html">
+                  <span>Standort</span>
+                </a>
+              </li>
+              <li>
+                <a href="links.html">
+                  <span>Links</span>
+                </a>
+              </li>
+              <li>
+                <a href="sponsoren.html">
+                  <span>Sponsoren</span>
+                </a>
+              </li>
+              <li>
+                <a href="bildergallerie.html">
+                  <span>Bildergallerie</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+
+      <div id="wrap" class="oe_structure oe_empty">
+        <section class="s_text_block_image_fw oe_img_bg oe_custom_bg mb0"
+          style="background-image: url(web/image/638.png); background-position: 54.5% 87.14%;">
+          <div class="container">
+            <div class="row">
+              <div class="bg-black-25 mt16 mb128 col-md-12">
+                <h2 style="font-size:62px">Resultate</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="s_text_block">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 mb16 mt16">
+                <div id="my_list">
+                  <image src="web/image/1161/spinner.gif"></image>
+                </div>
+                <script type="text/javascript">
+                  refreshList('https://kutuapp.sharevic.net/api/scores/' + wettkampfid + '/' + gesamtranglisteid + '?html');
+                </script>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+    <footer>
+      <div id="footer" class="container hidden-print">
+        <div class="row">
+          <div class="col-md-4 col-lg-3">
+            <h4>
+              <a href="index.html">
+                <font style="color: rgb(0, 0, 0);">Home</font>
+              </a>
+            </h4>
+            <ul class="list-unstyled" id="products">
+              <li>
+                <a href="programm.html" data-original-title="" title="">
+                  <font style="color: rgb(0, 0, 0);">Programm</font>
+                </a>
+              </li>
+              <li>
+                <a href="anfahrt.html">
+                  <font style="color: rgb(0, 0, 0);">Standort</font>
+                </a>
+              </li>
+              <li>
+                <a href="ranglisten.html">
+                  <font style="color: rgb(0, 0, 0);">Resultate</font>
+                </a>
+              </li>
+              <li>
+                <a href="fundgrube.html">
+                  <font style="color: rgb(0, 0, 0);">Fundgrube</font>
+                </a>
+              </li>
+              <li>
+                <a href="links.html">
+                  <font style="color: rgb(0, 0, 0);">Links</font>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="col-md-4  col-lg-3" id="info">
+            <h4>
+              <font style="color: rgb(0, 0, 0);">Kontakt</font>
+            </h4>
+            <ul class="list-unstyled">
+              <li>
+                <a href="ok.html" data-original-title="" title="">
+                  <font style="color: rgb(0, 0, 0);" data-original-title="" title="">Organisations-Komitee</font>
+                </a>
+              </li>
+              <li>
+                <a href="contactus.html" data-original-title="" title=""> Kontaktieren Sie uns </a>
+              </li>
+            </ul>
+            <h2>
+            </h2>
+          </div>
+          <div class="col-md-4 col-lg-5 col-lg-offset-1">
+            <h4>
+              <span>KM GeTu BS 2019</span>
+            </h4>
+            <p><a href="grusswort.html">Grusswort</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container mt16 mb8">
+        <div class="pull-left text-muted">
+          Copyright &copy; <span>KM GeTu BS 2019</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
